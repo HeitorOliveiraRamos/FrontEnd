@@ -1,0 +1,67 @@
+/* Configuração do fundo */
+body {
+    background: linear-gradient(135deg, #222, #444);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Contêiner 3D */
+.scene {
+    width: 200px;
+    height: 200px;
+    perspective: 600px;
+    position: relative;
+}
+
+/* Cubo */
+.cube {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px); /* Center the cube in the scene */
+    animation: rotateCube 5s infinite linear;
+}
+
+/* Luz no chão */
+.cube::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(16, 255, 16, 0.6) 10%, rgba(0, 0, 0, 0) 80%);
+    transform: translateX(-50%) rotateX(90deg) translateZ(-150px); /* Position and rotate the light */
+    filter: blur(13px);
+    bottom: 0;
+    left: 50%;
+}
+
+/* Faces do cubo */
+.face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(to bottom, #000000 35%, #10ff10 70%);
+    box-sizing: border-box;
+}
+
+/* Posição de cada face */
+.front  { transform: rotateY(0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); background: #000000; }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background: #10ff10; }
+
+/* Animação Suave */
+@keyframes rotateCube {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+}
