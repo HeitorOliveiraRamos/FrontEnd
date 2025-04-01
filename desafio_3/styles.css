@@ -1,0 +1,72 @@
+/* Estilo geral */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+/* Grid do jogo (4x4) */
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Estilo das cartas */
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    perspective: 1000px;
+}
+
+/* Esconde os inputs checkbox */
+.card input {
+    display: none;
+}
+
+/* Configuração da frente e verso da carta */
+.card label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+}
+
+/* Quando o checkbox está marcado, vira a carta */
+.card input:checked + label {
+    transform: rotateY(180deg);
+}
+
+/* Faces da carta */
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 2rem;
+    backface-visibility: hidden;
+}
+
+.front {
+    background-color: #007bff;
+    color: white;
+}
+
+.back {
+    background-color: white;
+    color: black;
+    transform: rotateY(180deg);
+}
