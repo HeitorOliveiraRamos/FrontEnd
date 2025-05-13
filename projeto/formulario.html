@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="form-page">
+<div class="contact-form">
+    <a href="index.html" class="back-button">← Voltar</a>
+    <h1>Entre em Contato</h1>
+    <form>
+        <div class="form-group">
+            <label>Como prefere ser contatado?</label>
+            <div class="radio-group">
+                <input type="radio" id="contato_email" name="metodo_contato" value="email" checked>
+                <label for="contato_email">E-mail</label>
+                <input type="radio" id="contato_celular" name="metodo_contato" value="celular">
+                <label for="contato_celular">Celular</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email_input">Seu E-mail:</label>
+            <input type="email" name="email_input" id="email_input" placeholder="seuemail@exemplo.com">
+        </div>
+
+        <div class="form-group">
+            <label for="celular_input">Seu Celular:</label>
+            <input type="tel" name="celular_input" id="celular_input" placeholder="(XX) XXXXX-XXXX">
+        </div>
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" id="nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mensagem">Mensagem:</label>
+            <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+        </div>
+
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
